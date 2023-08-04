@@ -88,7 +88,7 @@ function makeCard(bookToAdd)
     
     isRead.className = 'isReadStatus';
     readStatusBtn.className = 'readStatusBtn';
-    readStatusBtn.innerText = 'Change Read Status';
+    readStatusBtn.innerText = 'Change Read';
     readStatusBtn.setAttribute("data-index", myLibrary.indexOf(bookToAdd));
     removeButton.className = 'removeButton';
     removeButton.innerText = 'Remove Book';
