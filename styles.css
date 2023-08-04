@@ -1,3 +1,10 @@
+html,
+body {
+  box-sizing: border-box;
+  background-color: bisque;
+  font-family: Arial, Helvetica, sans-serif;
+}
+ 
  .header {
     display: flex;
     width: 100vmin;
@@ -7,10 +14,12 @@
  }
 
  #headerTitle {
-     background: black;
-     color: white;
-     width: 100vmin;
+     background: rgb(136, 81, 136);
+     color: rgb(255, 186, 255);
+     border-radius: 10px;
+     width: 2rem;
      flex-grow: 1;
+     text-shadow: 4px 0px 2px rgba(0, 0, 0, 0.5);
      text-align: center;
  }
 
@@ -25,18 +34,18 @@
  }
   
   .card {
-    margin: 1.5vmin;
+    margin: 1rem;
     text-align: center;
-    height: 30vmin;
-    width: 30vmin;
-    background-color: rgba(155, 145, 145, 0.541);
+    height: 15rem;
+    width: 15rem;
+    background-color: #ddd;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
     transition: 0.3s;
     border-radius: 5px;
 }
 
   .card:hover {
-    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.8);
+    box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.5);
   }
 
 #newBook, #resetBooks {
@@ -87,28 +96,31 @@
   outline: none;
 }
 
-
 .form-container .btn {
+  margin-top: 0.3rem;
+}
+
+.form-container .btn,
+.cancel {
   background-color: #4CAF50;
   color: white;
   padding: 16px 20px;
   border: none;
   cursor: pointer;
   width: 100%;
-  margin-bottom:10px;
+  margin-bottom: 5px;
   opacity: 0.8;
+  font-size: 16px;
 }
 
 .form-container .cancel {
-  font-size: 16px;
-  color: #fff;
   background-color: red;
-  border: none;
-  padding: 5px;
 }
 
 
-.form-container .btn:hover, .open-button:hover {
+.form-container .btn:hover, 
+.open-button:hover,
+.cancel:hover {
   opacity: 1;
 }
 

@@ -1,5 +1,6 @@
 const container = document.querySelector('.container');
 
+document.querySelector('.cancel').addEventListener('click', closeForm)
 document.getElementById('form').addEventListener('submit', addBook);
 document.getElementById('resetBooks').addEventListener('click', resetCards);
 container.addEventListener("click", changeBook);
