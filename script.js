@@ -35,10 +35,14 @@ document.getElementById('push').addEventListener('click', () => {
 
 //display books function 
 function displayBook(){
+  let pageContainer = document.querySelector('.page-wrapper');
+
   let card = document.createElement('div');
   card.classList.add('card');
   
-  let bookContainer = document.querySelector('.book-cards');
+  let bookContainer = document.createElement('section');
+  bookContainer.classList.add('book-cards')
+  pageContainer.appendChild(bookContainer);
   bookContainer.appendChild(card);
   
 
@@ -57,5 +61,8 @@ function displayBook(){
     card.appendChild(bookAuthor);
     card.appendChild(bookPages);
     card.appendChild(bookReadStatus);
+
+    let userInputForm = document.querySelector('form');
+    userInputForm.style.cssText = 'display: none';
   });
 }
