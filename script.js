@@ -4,10 +4,12 @@ function Book(title, author, pages, isRead) {
   this.authour = author;
   this.pages = pages;
   this.isRead = isRead;
-  //method to log book details
+  
+  /*method to log book details
   this.info = () => {
     return `${title} by: ${author}, ${pageCount} pages, has been read? ${isRead}`;
   }
+  */
 }
 
 //book storing array

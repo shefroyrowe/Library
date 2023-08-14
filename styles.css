@@ -12,13 +12,23 @@ body {
 
 .page-wrapper {
   display: flex;
-  justify-content: center;
-  padding: 20px;
+  flex-direction: column;
+  align-items: center;
   height: 100vh;
 }
 
+.page-wrapper>header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	background-color: #02C66F;
+
+}
+
 form {
-  width: auto;
+	display: none;
+  width: 20rem;
   height: 15rem;
   padding: 2rem;
   border-radius: 10px;
@@ -47,7 +57,7 @@ form {
   margin-left: 2.4rem;
 }
 
-/*is read toggle*/
+/*is read flip toggle*/
 .tgl {
 	display: none;
 	&,
@@ -150,6 +160,8 @@ form {
 	}
 }
 
+/*^^^^^is read flip toggle end^^^^^*/
+
 .isRead {
   display: flex;
   justify-content: center;
@@ -162,12 +174,43 @@ form {
   text-align: center;
 }
 
-/*buttons*/
+/*book entries*/
+.book-cards {
+	display: flex;
+	justify-content: space-evenly;
+	gap: 15px;
+	flex-wrap: wrap;
+	position: absolute;
+	top: 6rem;
+	height: 500px;
+	width: auto;
+	padding: 2rem;
+	border: 1px solid red;
+}
+
+.card {
+	display: flex;
+	color: white;
+	background-color: rgb(123, 104, 238);
+	font-weight: bold;
+	height: 250px;
+	width: 250px;
+	border-radius: 20px;
+-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.96);
+-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.96);
+box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.96);
+}
+
+.card>p {
+	margin: 30px 0px 0px 30px;
+}
+
+/*form buttons*/
 button {
   outline: none !important;
   border: none;
   height: 2rem;
-  transition: 0.9s;
+  transition: 0.5s;
 }
 
 button#push {
@@ -186,4 +229,5 @@ button#push:hover,
 button#cancel:hover {
   border-radius: 10px;
   transform: translateY(-4px);
+  color: #fff;
 }
