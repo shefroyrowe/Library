@@ -1,55 +1,60 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <title>Library</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
+  <title>library-app</title>
 </head>
 
-
 <body>
+  <div class="page-wrapper">
+    <form action="#">
 
-  <div class='bigcontainer'>
+      <div id="form-input-fields">
+        <span>
+          <label for="form-title">TITLE</label>
+          <input type="text" id="form-title" name="form-title">
+        </span>
 
-    <div class='header'>
-      <h1 id='headerTitle'>Library</h1>
-      <div class='topButtons'>
-        <button type="button" id='newBook' onclick="openForm()">Add Book</button>
-        <button type='button' id='resetBooks'>Clear Library</button>
-        <div class="form-popup" id="myForm">
-          <form  id='form' class="form-container">
-            <h1>Add Book</h1>
-        
-            <label for="title"><b>Title</b></label>
-            <input id='formTitle' type="text" placeholder="Enter Title" name="title" required>
-        
-            <label for="author"><b>Author</b></label>
-            <input id='formAuthor' type="text" placeholder="Enter Author" name="author" required>
-        
-            <label for="pages"><b>Pages</b></label>
-            <input id='formPages' type="number" placeholder="Enter Number of Pages" name="pages" required>
+        <span>
+          <label for="form-author">AUTHOR</label>
+          <input type="text" id="form-author" name="form-author">
+        </span>
 
-            <label for="isRead">Have you read it?</label>
-            <input name='formRead' id='formIsRead' class="popup_radio" type='radio' value="Read" required>Yes
-            <input name='formRead' id='formNotRead' class="popup_radio" type='radio' value="Not Read">No
-            <button id='formSubmit' class="btn">
-              Submit
-            </button>
-            <button class="cancel">
-              Cancel
-            </button>
-          </form>
+        <span>
+          <label for="form-pages">PAGES</label>
+          <input type="text" id="form-pages" name="form-pages">
+        </span>
+      </div>
+
+      <div id="form-option-fields">
+
+        <div class="isRead">
+          <p>IS IT READ?</p>
+          <label class="switch">
+            <input class="read" type="checkbox">
+            <span class="slider round"></span>
+          </label>
+          <span class="read-display"></span>
         </div>
       </div>
-    </div>
 
-    <div class='container'>
-    </div>
+      <span id="buttons">
+        <button type="button" id="push">GO</button>
+        <button type="button" id="cancel">CANCEL</button>
+      </span>
+
+    </form>
+
+    <section class="cards">
+
+    </section>
 
   </div>
 
-  <script src="script.js" ></script>
-
+  <script src="script.js"></script>
 </body>
+
 </html>
