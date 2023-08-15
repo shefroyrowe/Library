@@ -12,7 +12,7 @@ function Book(title, author, pages, isRead) {
   */
 }
 
-//book storing array
+//book storing array-------------------------------------------------//
 let myLibrary = [];
 
 function addBookToLibrary() {
@@ -24,14 +24,18 @@ function addBookToLibrary() {
   return new Book(newTitle, newAuthor, pages, isRead);
 }
 
-//push new book to library on click
-document.getElementById('push').addEventListener('click', () => {
-  myLibrary.push(addBookToLibrary());
-  console.log(myLibrary);
-  displayBook(); //function call
-});
+//push new book to library on click----------------------------------------//
+//stop after eight books are added
+  document.getElementById('push').addEventListener('click', () => {
+    myLibrary.push(addBookToLibrary());
+   
+    if(myLibrary.length <= 8){
+    displayBook(); //function call
+    }
+  });
 
-//'display book' function 
+
+//'display book' function----------------------------------------------------//
 function displayBook() {
   //get container element to hold the book divs
   let bookContainer = document.querySelector('.book-cards');
@@ -68,18 +72,26 @@ function displayBook() {
   });
 }
 
-//get 'new book' button and display user input form onclick
+//get 'new book' button and display user input form onclick of form 'go' button---------------------//
 function displayForm() {
   let userInputForm = document.querySelector('form');
 
   document.querySelector('.new-book-btn').addEventListener('click', () => {
     userInputForm.style.cssText = 'opacity: 1.0';
   });
+  //'cancel form' inner function//
+  function cancelForm() {
+    //get cancel button and bind to click event to hiode form
+    document.getElementById('cancel').addEventListener('click', () => {
+      userInputForm.style.cssText = 'transform: translateX(40rem); opacity: 0.0;';
+    });
+  }
+  cancelForm(); //'cancel form' inner function call
 }
-
 displayForm(); //function call
 
-//clear all library items function
+
+//clear all library items function------------------------------------------------------------------//
 function clearAll(){
   document.querySelector('.clear-all-btn').addEventListener('click', ()=>{
     //get book containing html element
@@ -95,6 +107,5 @@ clearAll(); //function call
 
 
 
-
-
-//stop card creation after eight books
+//style ui a bit better
+//add delete and change read button to cards
