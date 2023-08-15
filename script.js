@@ -26,13 +26,13 @@ function addBookToLibrary() {
 
 //push new book to library on click----------------------------------------//
 //stop after eight books are added
-  document.getElementById('push').addEventListener('click', () => {
-    myLibrary.push(addBookToLibrary());
-   
-    if(myLibrary.length <= 8){
+document.getElementById('push').addEventListener('click', () => {
+  myLibrary.push(addBookToLibrary());
+
+  if (myLibrary.length <= 8) {
     displayBook(); //function call
-    }
-  });
+  }
+});
 
 
 //'display book' function----------------------------------------------------//
@@ -53,18 +53,38 @@ function displayBook() {
   let bookPages = document.createElement('p');
   let bookReadStatus = document.createElement('p');
 
-  //append details  to 'p' elements 
+  //create delete btn, change read status btn ad a dive to hold them
+  let cardButtonWrapper = document.createElement('div');
+  cardButtonWrapper.classList.add('card-btn-wrap');
+
+  let deleteBook = document.createElement('button');
+  deleteBook.classList.add('delete-book');
+
+  let changeRead = document.createElement('button');
+  changeRead.classList.add('change-read-status');
+
+
+  //append details  to card elements 
   myLibrary.forEach(book => {
+
+    //append details  to 'p' elements 
     bookTitle.textContent = `Title: ${book.title}`;
     bookAuthor.textContent = `Author: ${book.author}`;
     bookPages.textContent = `${book.pages} pages`;
     bookReadStatus.textContent = `Book is read: [${book.isRead}]`;
+    deleteBook.textContent = 'Delete';
+    changeRead.textContent = 'Change read';
 
     //append 'p' elements to .card/div element
     card.appendChild(bookTitle);
     card.appendChild(bookAuthor);
     card.appendChild(bookPages);
     card.appendChild(bookReadStatus);
+
+    //append buttons to card/div element
+    cardButtonWrapper.appendChild(deleteBook);
+    cardButtonWrapper.appendChild(changeRead);
+    card.appendChild(cardButtonWrapper);
 
     //get form element and set it to hide on submit
     let userInputForm = document.querySelector('form');
@@ -92,8 +112,8 @@ displayForm(); //function call
 
 
 //clear all library items function------------------------------------------------------------------//
-function clearAll(){
-  document.querySelector('.clear-all-btn').addEventListener('click', ()=>{
+function clearAll() {
+  document.querySelector('.clear-all-btn').addEventListener('click', () => {
     //get book containing html element
     let bookContainer = document.querySelector('.book-cards');
     //delete all array elements

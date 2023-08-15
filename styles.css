@@ -250,3 +250,19 @@ button#cancel:hover {
 	transform: translateY(-4px);
 	color: #fff;
 }
+
+.card-btn-wrap {
+	display: flex;
+	gap: 3px;
+}
+
+.card-btn-wrap>button {
+	border-radius: 7px;
+	background-color: white;
+}
+
+.new-book-btn:hover,
+.clear-all-btn:hover {
+	transform: translateY(-4px);
+	transition: 0.2s;
+}
