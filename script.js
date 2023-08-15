@@ -27,11 +27,11 @@ function addBookToLibrary() {
 //push new book to library on click
 document.getElementById('push').addEventListener('click', () => {
   myLibrary.push(addBookToLibrary());
-
+  console.log(myLibrary);
   displayBook(); //function call
 });
 
-//display book function 
+//'display book' function 
 function displayBook() {
   //get container element to hold the book divs
   let bookContainer = document.querySelector('.book-cards');
@@ -79,9 +79,22 @@ function displayForm() {
 
 displayForm(); //function call
 
+//clear all library items function
+function clearAll(){
+  document.querySelector('.clear-all-btn').addEventListener('click', ()=>{
+    //get book containing html element
+    let bookContainer = document.querySelector('.book-cards');
+    //delete all array elements
+    myLibrary.length = 0;
+    //delete all books being displayed
+    bookContainer.textContent = '';
+  });
+}
+clearAll(); //function call
+
+
+
+
+
+
 //stop card creation after eight books
-
-
-
-
-
