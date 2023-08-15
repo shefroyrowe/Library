@@ -13,8 +13,8 @@
 
     <header>
       <div class="header-buttons">
-        <button class="new-book" type="menu">NEW BOOK</button>
-      <button class="clear">CLEAR ALL</button>
+        <button class="new-book-btn" type="button">NEW BOOK</button>
+        <button class="clear-all-btn">CLEAR ALL</button>
       </div>
       <h1>Library</h1>
     </header>
@@ -34,12 +34,11 @@
 
         <span>
           <label for="form-pages">PAGES</label>
-          <input type="text" id="form-pages" name="form-pages">
+          <input type="number" id="form-pages" name="form-pages">
         </span>
       </div>
 
       <div id="form-option-fields">
-
         <div class="isRead">
           <p>Did you read it?</p>
           <input class="tgl tgl-flip" id="cb5" type="checkbox"/>
@@ -54,12 +53,10 @@
 
     </form>
 
-    <section class="book-cards">
-
-    </section>
-
   </div>
-
+  <section class="book-cards">
+    
+  </section>
   <script src="script.js"></script>
 </body>
 

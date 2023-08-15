@@ -28,41 +28,57 @@ function addBookToLibrary() {
 document.getElementById('push').addEventListener('click', () => {
   myLibrary.push(addBookToLibrary());
 
-  console.log(myLibrary);
-
-  displayBook();
+  displayBook(); //function call
 });
 
-//display books function 
-function displayBook(){
-  let pageContainer = document.querySelector('.page-wrapper');
+//display book function 
+function displayBook() {
+  //get container element to hold the book divs
+  let bookContainer = document.querySelector('.book-cards');
 
+  //create a div to propagate with book details
   let card = document.createElement('div');
   card.classList.add('card');
-  
-  let bookContainer = document.createElement('section');
-  bookContainer.classList.add('book-cards')
-  pageContainer.appendChild(bookContainer);
-  bookContainer.appendChild(card);
-  
 
+  //append book div to container element
+  bookContainer.appendChild(card);
+
+  //create 'p' elements to hold book details
   let bookTitle = document.createElement('p');
   let bookAuthor = document.createElement('p');
   let bookPages = document.createElement('p');
   let bookReadStatus = document.createElement('p');
 
+  //append details  to 'p' elements 
   myLibrary.forEach(book => {
     bookTitle.textContent = `Title: ${book.title}`;
     bookAuthor.textContent = `Author: ${book.author}`;
     bookPages.textContent = `${book.pages} pages`;
     bookReadStatus.textContent = `Book is read: [${book.isRead}]`;
 
+    //append 'p' elements to .card/div element
     card.appendChild(bookTitle);
     card.appendChild(bookAuthor);
     card.appendChild(bookPages);
     card.appendChild(bookReadStatus);
 
+    //get form element and set it to hide on submit
     let userInputForm = document.querySelector('form');
-    userInputForm.style.cssText = 'display: none';
+    userInputForm.style.cssText = 'transform: translateX(40rem); opacity: 0.0;';
   });
 }
+
+//get 'new book' button and display user input form onclick
+function displayForm() {
+  let userInputForm = document.querySelector('form');
+
+  document.querySelector('.new-book-btn').addEventListener('click', () => {
+    userInputForm.style.cssText = 'opacity: 1.0';
+  });
+}
+
+displayForm(); //function call
+
+
+
+
