@@ -4,7 +4,7 @@ body {
 	height: 100%;
 	min-width: 500px;
 	box-sizing: border-box;
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	background: burlywood;
 	overflow: hidden;
 }
@@ -24,6 +24,10 @@ body {
 	width: 100%;
 	background-color: #02C66F;
 	text-shadow: 0px 1px 1px rgba(0, 0, 0);
+}
+
+.page-wrapper>header {
+	text-shadow: 4px 0px 2px rgba(0, 0, 0, 0.5);
 }
 
 .page-wrapper>header button {
@@ -207,20 +211,17 @@ form {
 .card {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 	justify-content: center;
 	color: white;
 	letter-spacing: 0.6px;
-	font-weight: bold;
 	font-size: 15px;
 	height: 250px;
 	width: 250px;
+	padding-left: 20px;
 	border-radius: 20px;
 	background-color: blueviolet;
 	text-shadow: 0px 1px 1px rgba(0, 0, 0);
-	-webkit-box-shadow: 0px 0px 5px 2px rgba(255, 255, 255, 0.9);
-	-moz-box-shadow: 0px 0px 5px 2px rgba(255, 255, 255, 0.9);
-	box-shadow: 0px 0px 3px 2px rgba(255, 255, 255, 0.9);
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
 }
 
 /*form buttons*/
@@ -253,6 +254,8 @@ button#cancel:hover {
 .card-btn-wrap {
 	display: flex;
 	gap: 5px;
+	align-self: center;
+	margin: 20px 0px -10px -22px;
 }
 
 .card-btn-wrap>button {
