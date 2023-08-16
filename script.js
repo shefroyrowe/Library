@@ -30,7 +30,8 @@ document.getElementById('push').addEventListener('click', () => {
   myLibrary.push(addBookToLibrary());
 
   if (myLibrary.length <= 8) {
-    displayBook(); //function call
+    displayBook(); //function call (display book)
+    console.log(myLibrary);
   }
 });
 
@@ -43,9 +44,6 @@ function displayBook() {
   //create a div to propagate with book details
   let card = document.createElement('div');
   card.classList.add('card');
-
-  //append book div to container element
-  bookContainer.appendChild(card);
 
   //create 'p' elements to hold book details
   let bookTitle = document.createElement('p');
@@ -76,19 +74,38 @@ function displayBook() {
     changeRead.textContent = 'Change read';
 
     //append 'p' elements to .card/div element
-    card.appendChild(bookTitle);
-    card.appendChild(bookAuthor);
-    card.appendChild(bookPages);
-    card.appendChild(bookReadStatus);
+    card.append(bookTitle);
+    card.append(bookAuthor);
+    card.append(bookPages);
+    card.append(bookReadStatus);
+    card.setAttribute("data-index", myLibrary.indexOf(book));
 
     //append buttons to card/div element
-    cardButtonWrapper.appendChild(deleteBook);
-    cardButtonWrapper.appendChild(changeRead);
-    card.appendChild(cardButtonWrapper);
+    cardButtonWrapper.append(deleteBook);
+    cardButtonWrapper.append(changeRead);
+    card.append(cardButtonWrapper);
+
+     //append book div to container element
+    bookContainer.appendChild(card);
+
+
 
     //get form element and set it to hide on submit
     let userInputForm = document.querySelector('form');
-    userInputForm.style.cssText = 'transform: translateX(40rem); opacity: 0.0;';
+    userInputForm.style.cssText = 'display: none;';
+
+ 
+  //Remove books:
+  deleteBook.addEventListener('click', () => {
+      
+    let index = cardButtonWrapper.parentElement.getAttribute('data-index');
+    card.remove();
+    myLibrary.splice(index);
+
+    console.log(index)
+      console.log(myLibrary);//remove
+
+  });
   });
 }
 
@@ -97,13 +114,14 @@ function displayForm() {
   let userInputForm = document.querySelector('form');
 
   document.querySelector('.new-book-btn').addEventListener('click', () => {
-    userInputForm.style.cssText = 'opacity: 1.0';
+    userInputForm.style.cssText = 'display: unset;';
   });
+  
   //'cancel form' inner function//
   function cancelForm() {
     //get cancel button and bind to click event to hiode form
     document.getElementById('cancel').addEventListener('click', () => {
-      userInputForm.style.cssText = 'transform: translateX(40rem); opacity: 0.0;';
+      userInputForm.style.cssText = 'display: none;';
     });
   }
   cancelForm(); //'cancel form' inner function call
@@ -120,10 +138,11 @@ function clearAll() {
     myLibrary.length = 0;
     //delete all books being displayed
     bookContainer.textContent = '';
+
+    console.log(myLibrary);//remove
   });
 }
 clearAll(); //function call
-
 
 
 
