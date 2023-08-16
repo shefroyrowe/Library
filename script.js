@@ -12,7 +12,7 @@ function Book(title, author, pages, isRead) {
   */
 }
 
-//book storing array-------------------------------------------------//
+//book storage array-------------------------------------------------//
 let myLibrary = [];
 
 function addBookToLibrary() {
@@ -23,18 +23,6 @@ function addBookToLibrary() {
 
   return new Book(newTitle, newAuthor, pages, isRead);
 }
-
-//push new book to library on click----------------------------------------//
-//stop after eight books are added
-document.getElementById('push').addEventListener('click', () => {
-  myLibrary.push(addBookToLibrary());
-
-  if (myLibrary.length <= 8) {
-    displayBook(); //function call (display book)
-    console.log(myLibrary);
-  }
-});
-
 
 //'display book' function----------------------------------------------------//
 function displayBook() {
@@ -85,7 +73,7 @@ function displayBook() {
     cardButtonWrapper.append(changeRead);
     card.append(cardButtonWrapper);
 
-     //append book div to container element
+    //append book div to container element
     bookContainer.appendChild(card);
 
 
@@ -94,20 +82,49 @@ function displayBook() {
     let userInputForm = document.querySelector('form');
     userInputForm.style.cssText = 'display: none;';
 
- 
-  //Remove books:
-  deleteBook.addEventListener('click', () => {
-      
-    let index = cardButtonWrapper.parentElement.getAttribute('data-index');
-    card.remove();
-    myLibrary.splice(index);
 
-    console.log(index)
-      console.log(myLibrary);//remove
+    //Remove books event listener//
+    deleteBook.addEventListener('click', () => {
 
-  });
+      let thisIndex = cardButtonWrapper.parentElement.getAttribute('data-index');
+      card.remove();
+      myLibrary.splice(thisIndex);
+      console.log(myLibrary);
+    });
+
+    //change read status
+    Book.prototype.switchRead = () => {
+      changeRead.addEventListener('click', () => {
+        if (book.isRead === true) {
+          book.isRead = false;
+          myLibrary.isRead = false;
+          bookReadStatus.textContent = `Book is read: [${book.isRead}]`;
+
+        } else if (book.isRead === false) {
+          book.isRead = true;
+          myLibrary.isRead = true;
+          bookReadStatus.textContent = `Book is read: [${book.isRead}]`;
+        }
+
+      });
+    }
+    book.switchRead(); //'switchRead method' call
+
   });
 }
+
+
+//push new book to library on click----------------------------------------//
+//stop after eight books are added
+document.getElementById('push').addEventListener('click', () => {
+  myLibrary.push(addBookToLibrary());
+
+  if (myLibrary.length <= 8) {
+    displayBook(); //function call (display book)
+    console.log(myLibrary);
+  }
+});
+
 
 //get 'new book' button and display user input form onclick of form 'go' button---------------------//
 function displayForm() {
@@ -116,7 +133,7 @@ function displayForm() {
   document.querySelector('.new-book-btn').addEventListener('click', () => {
     userInputForm.style.cssText = 'display: unset;';
   });
-  
+
   //'cancel form' inner function//
   function cancelForm() {
     //get cancel button and bind to click event to hiode form
@@ -143,8 +160,3 @@ function clearAll() {
   });
 }
 clearAll(); //function call
-
-
-
-//style ui a bit better
-//add delete and change read button to cards
