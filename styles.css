@@ -5,8 +5,13 @@ body {
 	min-width: 500px;
 	box-sizing: border-box;
 	font-family: Arial, Helvetica, sans-serif;
-	background: burlywood;
+	background: #ffe4cf;
 	overflow: hidden;
+}
+
+/*remove all scroll bars*/
+::-webkit-scrollbar {
+    display: none;
 }
 
 .page-wrapper {
@@ -22,18 +27,26 @@ body {
 	align-items: center;
 	justify-content: space-between;
 	width: 100%;
-	background-color: #02C66F;
-	text-shadow: 0px 1px 1px rgba(0, 0, 0);
-}
-
-.page-wrapper>header {
+	background-color: #885188;
+	color: #ffbaff;
 	text-shadow: 4px 0px 2px rgba(0, 0, 0, 0.5);
 }
 
 .page-wrapper>header button {
 	border-radius: 10px;
-	background-color: blueviolet;
+	background-color: orangered;
 	color: white;
+}
+
+header>h1{
+	margin-left: 4rem;
+	padding: 8px;
+	font-size: 2.5rem;
+	border-bottom: 0.25px solid orange;
+}
+
+.header-buttons {
+	margin-right: 4rem;
 }
 
 form {
@@ -200,11 +213,11 @@ form {
 	justify-content: center;
 	flex-wrap: wrap;
 	position: absolute;
-	top: 7rem;
+	top: 8rem;
+	padding: 1rem 2rem 2rem 2rem;
 	height: 500px;
 	width: 700px;
-	padding: 1rem 2rem 2rem 2rem;
-	border: 1px solid red;
+	border: 1px solid orange;
 	overflow-y: scroll;
 }
 
@@ -230,10 +243,13 @@ button {
 	border: none;
 	height: 2rem;
 	transition: 0.5s;
+	text-shadow: 0px 1px 1px rgba(0, 0, 0);
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+	font-weight: bold;
 }
 
 button#push {
-	margin-bottom: -0.7rem;
+	margin-bottom: -0.3rem;
 }
 
 button#push:hover {
@@ -261,8 +277,10 @@ button#cancel:hover {
 .card-btn-wrap>button {
 	border-radius: 7px;
 	width: 6rem;
-	background-color: white;
+	background-color: #ff00ff;
+	color: white;
 	letter-spacing: 1px;
+	text-shadow: 4px 0px 2px rgba(0, 0, 0, 0.5);
 }
 
 .new-book-btn:hover,
