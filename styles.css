@@ -219,7 +219,8 @@ form {
 	padding: 1rem 2rem 2rem 2rem;
 	height: 500px;
 	width: 700px;
-	border: 1px solid orange;
+	border-top: 2px solid #02C66F;
+	border-bottom: 2px solid #02c66f;
 	border-radius: 10px;
 	overflow-y: scroll;
 }
