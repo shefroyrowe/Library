@@ -163,5 +163,3 @@ function clearAll() {
   });
 }
 clearAll(); //function call
-
-//ADD PAGE TAB ICON
