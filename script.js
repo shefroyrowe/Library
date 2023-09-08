@@ -113,7 +113,9 @@ function displayBook() {
 //--------------------------------------------------------------------------//
 //push new book to library on submit-----------------------------------------/
 //stop after eight books are added----------------------------------------//
-document.getElementById('push').addEventListener('click', () => {
+document.querySelector('form').addEventListener('submit', (e) => {
+  //-------prevent form default submit action so html validation can work--------//
+  e.preventDefault();
 
   myLibrary.push(createBook());
 
@@ -121,7 +123,7 @@ document.getElementById('push').addEventListener('click', () => {
   if (myLibrary.length <= 8) {
     displayBook(); //function call (display book)
   }
-
+  
 });
 
 //--------------------------------------------------------------------------------------------------//

@@ -77,11 +77,6 @@ form {
 	margin-left: 1rem;
 }
 
-/*for invalide style*/
-.invalid {
-	border: 3px solid red;
-}
-
 #form-input-fields #form-title,
 #form-input-fields #form-pages {
 	margin-left: 2rem;
@@ -228,6 +223,7 @@ form {
 	border-bottom: 2px solid #02c66f;
 	border-radius: 10px;
 	overflow-y: scroll;
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.4);
 }
 
 .card {
