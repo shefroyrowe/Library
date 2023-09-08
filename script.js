@@ -1,17 +1,13 @@
 //---------------------------------------------/
 //---------new book constructor--------------//
-function Book(title, author, pages, isRead) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.isRead = isRead;
-
-  /*method to log book details
-  this.info = () => {
-    return `${title} by: ${author}, ${pageCount} pages, has been read? ${isRead}`;
+class Book {
+  constructor(title, author, pages, isRead) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.isRead = isRead;
   }
-  */
-}
+};
 
 //--------------------/
 //book storage array//
@@ -115,14 +111,17 @@ function displayBook() {
 }
 
 //--------------------------------------------------------------------------//
-//push new book to library on click-----------------------------------------/
+//push new book to library on submit-----------------------------------------/
 //stop after eight books are added----------------------------------------//
 document.getElementById('push').addEventListener('click', () => {
+
   myLibrary.push(createBook());
 
+  //----stop adding books after eight have been made----//
   if (myLibrary.length <= 8) {
     displayBook(); //function call (display book)
   }
+
 });
 
 //--------------------------------------------------------------------------------------------------//
